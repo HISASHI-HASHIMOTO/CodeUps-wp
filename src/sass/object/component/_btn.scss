@@ -1,0 +1,111 @@
+@use "global" as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: $green;
+  font-family: $english-family;
+  max-width: rem(202);
+  width: 100%;
+  color: $white;
+  padding: rem(17) rem(40);
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  justify-content: center;
+  pointer-events: none;
+  @include mq(md) {
+   pointer-events: all;
+  }
+}
+.btn.btn--white {
+  background-color: $white;
+  color: $green;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: rem(4);
+  right: rem(-4);
+  height: 100%;
+  width: 100%;
+  border: 1px solid $green;
+  z-index: -100;
+}
+
+.btn.btn--white::before {
+  border-color: $white;
+} 
+
+.btn__text {
+  font-size: rem(14);
+}
+
+.btn__text-upper {
+  text-transform: uppercase;
+}
+
+.btn__text::first-letter {
+  text-transform: uppercase;
+}
+
+.btn__arrow {
+  border-bottom: 1px solid $white;
+  border-right: 1px solid $white;
+  height: rem(6);
+  margin-left: rem(8);
+  transform: skew(45deg);
+  width: rem(40);
+  margin-top: rem(-4);
+}
+
+.btn__arrow.btn__text--white {
+  border-color: $green;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: $white;
+  border: 1px solid $green;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: 0.2s cubic-bezier(0.45, 0, 0.55, 1);
+  z-index: -10;
+}
+
+.btn.btn--white::after {
+  background: $green;
+  border-color:  $white;
+}
+
+.btn:hover {
+  @include mq(md) {   
+    color: $green;
+    opacity: 1;
+    z-index: 10;
+  }
+}
+
+.btn.btn--white:hover {
+  @include mq(md) {
+   color: $white;
+  }
+}
+
+.btn:hover::after {
+  transform: scale(1, 1);
+}
+
+.btn:hover .btn__arrow {
+  border-color: $green;
+}
+
+.btn.btn--white:hover .btn__arrow {
+  border-color: $white;
+}

@@ -1,0 +1,68 @@
+@use "global" as *;
+
+.voice {
+  @include mq(md) {
+   position: relative;
+  }
+}
+.voice::before {
+  content: none;
+  display: none;
+  @include mq(md) {   
+    content: "";
+    position: absolute;
+    display: inline-block;
+    background-image: url(/assets/images/common/kinngyonadadai_green.png);
+    background-size: rem(301) rem(138);
+    background-repeat: no-repeat;
+    top: -19.6%;
+    left:  calc(50% - min(48%, 40rem));
+    width: rem(301);
+    height: rem(138);
+  }
+}
+
+.voice__inner {
+  position: relative;
+  max-width: rem(600);
+}
+
+
+.voice__inner::after {
+  content: none;
+  display: none;
+  @include mq(md) {   
+    content: "";
+    position: absolute;
+    display: inline-block;
+    background-image: url(/assets/images/common/ibaratatsu.png);
+    background-size: rem(71) rem(162);
+    background-repeat: no-repeat;
+    bottom: -11%;
+    right: 2%;
+    width: rem(71);
+    height: rem(162);
+  }
+}
+
+.voice__cards  {
+  margin-top: rem(40);
+  @include mq(md) {
+   margin-top: rem(20.8);
+  }
+}
+.voice__cards .cards2__item {
+  max-width: rem(600);
+  margin-inline: auto;
+  @include mq(md) {
+   max-width: rem(520);
+  }
+}
+
+.voice__btn {
+  margin-top: rem(42);
+  text-align: center;
+  @include mq(md) {
+    margin-top: rem(80);
+  }
+}

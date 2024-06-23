@@ -1,0 +1,100 @@
+@use "global" as *;
+
+
+.pagenation__contents {
+  display: flex;
+  justify-content: center;
+}
+
+.pagenation__link-pre,
+.pagenation__link-page,
+.pagenation__link-post {
+  display: grid;
+  place-items: center;
+  font-size: rem(16);
+  border: 1px solid $green;
+  padding: 0 rem(5);
+  color: $green;
+  cursor: pointer;
+  font-weight: bold;
+  min-width: rem(38);
+  height: rem(38);
+  transition: 0.3s all;
+}
+
+.pagenation__link-page:nth-child(n + 6)  {
+  display: none;
+  @include mq(md) {
+   display: grid;
+  }
+}
+
+.pagenation__link-page + .pagenation__link-page {
+  margin-left: rem(12); 
+}
+
+.pagenation__link-page.is-active {
+  background-color: $green;
+  color: $white;
+}
+
+.pagenation__link-pre:hover,
+.pagenation__link-page:hover,
+.pagenation__link-post:hover
+ {
+  background-color: $green;
+  color: $white;
+  transition: 0.3s all;
+} 
+
+.pagenation__link-pre {
+  margin-right: rem(40);
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.pagenation__link-pre::before {
+  content: '';
+  position: absolute;
+  width: rem(11);
+  height: rem(11);
+  border-top: 1px solid $green;
+  border-right: 1px solid $green;
+  transform: rotate(-135deg);
+  left: 43%;
+  top: 36%;
+  transition: 0.3s border;
+}
+
+.pagenation__link-pre:hover::before  {
+  background-color: transparent;
+  border-top: 1px solid $white;
+  border-right: 1px solid $white;
+  transition: 0.3s all;
+}
+
+.pagenation__link-post {
+  margin-left: rem(40);
+  position: relative;
+} 
+
+.pagenation__link-post::before {
+  content: '';
+  position: absolute;
+  width: rem(11);
+  height: rem(11);
+  border-top: 1px solid $green;
+  border-right: 1px solid $green;
+  transform: rotate(45deg);
+  right: 42%;
+  top: 34%;
+  transition: 0.3s border;
+}
+
+.pagenation__link-post:hover::before  {
+  background-color: transparent;
+  border-top: 1px solid $white;
+  border-right: 1px solid $white;
+  transition: 0.3s all;
+}

@@ -1,0 +1,39 @@
+@use "global" as *;
+
+.drawer-menu {
+  background-color: $green;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 8000;
+  display: none;
+  @include mq(md) {
+    display: none;
+  }
+}
+
+.drawer-menu__inner {
+  padding: 0 rem(15) rem(111);
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.drawer-menu__contents {
+  display: flex;
+  gap: rem(6.4);
+  justify-content: center;
+}
+
+.drawer-menu__list {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 50%;
+}
+
+.drawer-menu__nav-list:not(:first-of-type) {
+  margin-top: rem(16);
+}
