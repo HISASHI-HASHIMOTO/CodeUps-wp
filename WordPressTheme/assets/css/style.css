@@ -1771,7 +1771,7 @@ tr {
 }
 
 .campaign__button-prev:before {
-	background-image: url("<?php echo get_template_directory_uri(); ?>"/assets/images/common/Group18.svg);
+	/* background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/common/Group18.svg'); */
 }
 
 .campaign__button-next:before {
