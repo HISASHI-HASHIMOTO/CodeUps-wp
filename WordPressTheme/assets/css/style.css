@@ -664,7 +664,7 @@ a {
 }
 
 .fish-icon-right::before {
-	background-image: url(../images/common/kinngyonadadai_green.png);
+	background-image: url(/wp-content/themes/WordPressTheme/images/common/kinngyonadadai_green.png);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -682,7 +682,7 @@ a {
 }
 
 .fish-icon::before {
-	background-image: url(../images/common/kinngyonadadai_green.png);
+	background-image: url(/wp-content/themes/WordPressTheme/images/common/kinngyonadadai_green.png);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
