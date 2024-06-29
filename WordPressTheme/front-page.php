@@ -7,35 +7,22 @@
       <!-- swiper-wrapper -->
       <div class="mv__swiper-wrapper swiper-wrapper">
         <!-- スライド -->
+        <?php
+            $arrayCountUp = 0;
+            foreach (SCF::get('top-mainview') as $field_name => $filed_value) :
+              $carousel_thumbnail = wp_get_attachment_image_src($filed_value['swiper-mainview'], 'large');
+              $carousel_thumbnail = esc_url($carousel_thumbnail[0]);
+              if ($arrayCountUp < 4) {
+          ?>
         <div class="mv__swiper-slide swiper-slide">
           <picture>
-            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/Rectangle1(11).jpg"
-              media="(min-width: 768px)" />
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/Rectangle207.png" alt="海底を優雅に泳ぐ亀" />
+            <source srcset="<?php echo $carousel_thumbnail ?>" media="(min-width: 768px)" />
+            <img src="<?php echo $carousel_thumbnail ?>" alt="海底を優雅に泳ぐ亀" />
           </picture>
         </div>
-        <div class="mv__swiper-slide swiper-slide">
-          <picture>
-            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/S__354388041(1).jpg"
-              media="(min-width: 768px)" />
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/S__354388042.jpg"
-              alt="二人がダイビング中に亀と遭遇する" />
-          </picture>
-        </div>
-        <div class="mv__swiper-slide swiper-slide">
-          <picture>
-            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/Mask_group.jpg"
-              media="(min-width: 768px)" />
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/Mask group.jpg" alt="海辺に漂う船と青い空" />
-          </picture>
-        </div>
-        <div class="mv__swiper-slide swiper-slide">
-          <picture>
-            <source srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/Rectangle217.jpg"
-              media="(min-width: 768px)" />
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/Rectangle218.jpg" alt="綺麗に澄んだ海岸" />
-          </picture>
-        </div>
+        <?php }
+          $arrayCountUp++;
+        endforeach; ?>
       </div>
       <div class="mv__title">
         <h2 class="mv__main-title">diving</h2>

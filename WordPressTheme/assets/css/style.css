@@ -781,7 +781,7 @@ a {
 }
 
 .nav-list__heading-link::before {
-	background-image: url(/assets/images/common/hitode.png);
+	background-image: url(/wp-content/themes/WordPressTheme/assets/images/common/hitode.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	content: "";
@@ -795,7 +795,7 @@ a {
 }
 
 .nav-list__heading-link.nav-list__heading-link--black::before {
-	background-image: url(/assets/images/common/hitode-black.png);
+	background-image: url(/wp-content/themes/WordPressTheme/assets/images/common/hitode-black.png);
 	width: 1.125rem;
 }
 
@@ -1553,7 +1553,7 @@ tr {
 }
 
 .blog-article li::before {
-	background-image: url(/assets/images/common/hitode-green.png);
+	background-image: url(/wp-content/themes/WordPressTheme/assets/images/common/hitode-green.png);
 	background-size: cover;
 	content: "";
 	display: inline-block;
@@ -1771,11 +1771,11 @@ tr {
 }
 
 .campaign__button-prev:before {
-	/* background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/common/Group18.svg'); */
+	background-image: url(/wp-content/themes/WordPressTheme/assets/images/common/Group18.svg);
 }
 
 .campaign__button-next:before {
-	background-image: url(/assets/images/common/Group19.svg);
+	background-image: url(/wp-content/themes/WordPressTheme/assets/images/common/Group19.svg);
 }
 
 .campaign__button-prev:after,
@@ -1821,7 +1821,7 @@ tr {
 }
 
 .contact::after {
-	background-image: url(/assets/images/common/kingyohanadai-green2.png);
+	background-image: url(/wp-content/themes/WordPressTheme/assets/images/common/kingyohanadai-green2.png);
 	background-repeat: no-repeat;
 	background-size: 6.8125rem 3.125rem;
 	content: "";
@@ -2157,7 +2157,7 @@ tr {
 }
 
 .form__select select {
-	background-image: url(/assets/images/common/Polygon-bottom.png);
+	background-image: url(/wp-content/themes/WordPressTheme/assets/images/common/Polygon-bottom.png);
 	background-position: right 1rem top 1rem;
 	background-repeat: no-repeat;
 	background-size: 0.75rem 0.75rem;
@@ -2741,7 +2741,7 @@ tr {
 
 .section-404 {
 	background-color: #408f95;
-	background-image: url(/assets/images/common/404-bg.png);
+	background-image: url(/wp-content/themes/WordPressTheme/assets/images/common/404-bg.png);
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: 92%;
@@ -3070,7 +3070,7 @@ html {
 }
 
 .sango-icon::after {
-	background-image: url(/assets/images/common/sango_isogintyaku.png);
+	background-image: url(/wp-content/themes/WordPressTheme/assets/images/common/sango_isogintyaku.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	bottom: -5.625rem;
@@ -3358,7 +3358,7 @@ html {
 }
 
 .blog::before {
-	background-image: url(/assets/images/common/kinngyonahadai-white.png);
+	background-image: url(/wp-content/themes/WordPressTheme/assets/images/common/kinngyonahadai-white.png);
 	background-repeat: no-repeat;
 	background-size: 27.3125rem 12.5625rem;
 	content: "";
@@ -3371,7 +3371,7 @@ html {
 }
 
 .blog::after {
-	background-image: url(/assets/images/common/Rectangle7.jpg);
+	background-image: url(/wp-content/themes/WordPressTheme/assets/images/common/Rectangle7.jpg);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -3749,7 +3749,7 @@ html {
 }
 
 .gallery::after {
-	background-image: url(/assets/images/common/kingyohanadai-green2.png);
+	background-image: url(/wp-content/themes/WordPressTheme/assets/images/common/kingyohanadai-green2.png);
 	background-repeat: no-repeat;
 	background-size: 6.8125rem 3.125rem;
 	background-size: 19.5rem 9rem;
@@ -3943,7 +3943,7 @@ html {
 }
 
 .price::after {
-	background-image: url(/assets/images/common/kingyohanadai-green2.png);
+	background-image: url(/wp-content/themes/WordPressTheme/assets/images/common/kingyohanadai-green2.png);
 	background-repeat: no-repeat;
 	background-size: 27.6875rem 13.25rem;
 	bottom: 1.7%;
@@ -4067,7 +4067,7 @@ html {
 }
 
 .voice::before {
-	background-image: url(/assets/images/common/kinngyonadadai_green.png);
+	background-image: url(/wp-content/themes/WordPressTheme/assets/images/common/kinngyonadadai_green.png);
 	background-repeat: no-repeat;
 	background-size: 18.8125rem 8.625rem;
 	content: "";
@@ -4080,7 +4080,7 @@ html {
 }
 
 .voice__inner::after {
-	background-image: url(/assets/images/common/ibaratatsu.png);
+	background-image: url(/wp-content/themes/WordPressTheme/assets/images/common/ibaratatsu.png);
 	background-repeat: no-repeat;
 	background-size: 4.4375rem 10.125rem;
 	bottom: -11%;
