@@ -63,8 +63,10 @@
                     <div class="campaign-card__box">
                       <div class="campaign-card__menu">全部コミコミ(お一人様)</div>
                       <div class="campaign-card__price">
-                        <div class="campaign-card__original-price">¥56,000</div>
-                        <div class="campaign-card__discounted-rate">¥46,000</div>
+                        <?php $fields = SCF::get_option_meta( 'theme-options', 'campaign__swiper' ); foreach ( $fields as $field_name => $fields_value ) { ?>
+                        <div class="campaign-card__original-price"> <?php echo $fields_value['original']; ?></div>
+                        <div class="campaign-card__discounted-rate"> <?php echo $fields_value['discounted']; ?></div>
+                        <?php } ?>
                       </div>
                     </div>
                   </div>
