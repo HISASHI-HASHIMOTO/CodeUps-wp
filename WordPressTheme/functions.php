@@ -51,5 +51,24 @@ add_action('wp_head', 'codeups_add_meta_tags');
  */
 SCF::add_options_page( 'campaign__swiper', 'キャンペーンカード', 'manage_options', 'theme-options' );
 
+// ---------------------------------
+// キャンペーンカード カスタム投稿
+// ---------------------------------
+// function create_campaign_post_type() {
+//     register_post_type('campaign',
+//         array(
+//             'labels' => array(
+//                 'name' => __('Campaigns'),
+//                 'singular_name' => __('Campaign')
+//             ),
+//             'public' => true,
+//             'has_archive' => true,
+//             'rewrite' => array('slug' => 'campaigns'),
+//             'supports' => array('title', 'editor', 'thumbnail')
+//         )
+//     );
+// }
+// add_action('init', 'create_campaign_post_type');
+
 
 ?>

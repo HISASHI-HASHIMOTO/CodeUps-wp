@@ -44,21 +44,39 @@
           <div class="campaign__button-prev"></div>
           <div class="campaign__button-next"></div>
         </div>
+        <?php
+            $args = array(
+                "post_type" => "campaign", // カスタム投稿のスラッグ名
+                "posts_per_page" => 10, // 表示する件数
+                'orderby' => 'date',
+                'order' => 'DESC'  
+            ); $the_query = new WP_Query($args);?>
+        <?php if ($the_query->have_posts()) : ?>
+        <!-- サブループ開始 -->
         <div class="campaign__content">
           <div class="campaign__swiper swiper" id="slide2">
             <!-- swiper-wrapper -->
             <div class="campaign__swiper-wrapper swiper-wrapper">
               <!-- スライド -->
+              <?php while ($the_query->have_posts()) : $the_query->the_post();   the_content();?>
+
+
               <div class="campaign__swiper-slide swiper-slide">
-                <a href="" class="campaign__slide-card campaign-card">
+                <a href="<?php echo esc_url(home_url("/campaign")) ?>" class="campaign__slide-card campaign-card">
                   <figure class="campaign-card__img">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign1.jpg"
-                      alt="海水の中で煌びやかに光る魚群" />
+                    <?php if (get_the_post_thumbnail()) : ?>
+                    <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>のアイキャッチ画像">
+                    <?php else : ?>
+                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/noimage.jpg" alt="no image">
+                    <?php endif ?>
                   </figure>
                   <div class="campaign-card__body">
                     <div class="campaign-card__metabox">
-                      <div class="campaign-card__meta">ライセンス講習</div>
-                      <p class="campaign-card__title">ライセンス取得</p>
+                      <?php 
+                    $taxonomy_terms = get_the_terms($post->ID, 'campaign_category');
+                    foreach (!empty($taxonomy_terms) ? $taxonomy_terms : [] as $taxonomy_term) :echo '<p class="campaign-card__meta category">' . esc_html($taxonomy_term->name) . '</p>'; endforeach;
+                    ?>
+                      <p class="campaign-card__title"><?php the_title(); ?></p>
                     </div>
                     <div class="campaign-card__box">
                       <div class="campaign-card__menu">全部コミコミ(お一人様)</div>
@@ -72,7 +90,7 @@
                   </div>
                 </a>
               </div>
-              <div class="campaign__swiper-slide swiper-slide">
+              <!-- <div class="campaign__swiper-slide swiper-slide">
                 <a href="" class="campaign__slide-card campaign-card">
                   <figure class="campaign-card__img">
                     <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign2.jpg"
@@ -155,12 +173,18 @@
                     </div>
                   </div>
                 </a>
-              </div>
+              </div> -->
+              <?php endwhile; ?>
+              <!-- サブループ終了 -->
+              <?php wp_reset_postdata(); ?>
             </div>
           </div>
         </div>
+        <?php else : ?>
+        <p class="campaign__message">記事が投稿されていません</p>
+        <?php endif; ?>
         <div class="campaign__btn">
-          <a class="btn">
+          <a href="<?php echo esc_url(home_url("/campaign")) ?>" class="btn">
             <span class="btn__text">view&nbsp;more</span>
             <div class="btn__arrow"></div>
           </a>
