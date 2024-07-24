@@ -80,100 +80,22 @@
                     </div>
                     <div class="campaign-card__box">
                       <div class="campaign-card__menu">全部コミコミ(お一人様)</div>
+                      <?php  $pricegroup = get_field('campaign-card__price'); ?>
                       <div class="campaign-card__price">
-                        <?php $fields = SCF::get_option_meta( 'theme-options', 'campaign__swiper' ); foreach ( $fields as $field_name => $fields_value ) { ?>
-                        <div class="campaign-card__original-price"> <?php echo $fields_value['original']; ?></div>
-                        <div class="campaign-card__discounted-rate"> <?php echo $fields_value['discounted']; ?></div>
-                        <?php } ?>
+                        <?php if (!empty($pricegroup['campaign-card__original-price'])) : ?>
+                        <div class="campaign-card__original-price">
+                          ￥<?php echo $pricegroup['campaign-card__original-price']; ?></div>
+                        <?php endif; ?>
+                        <?php if (!empty($pricegroup['campaign-card__discounted-rate'])) : ?>
+                        <div class="campaign-card__discounted-rate">
+                          ￥<?php echo $pricegroup['campaign-card__discounted-rate']; ?>
+                        </div>
+                        <?php endif; ?>
                       </div>
                     </div>
                   </div>
                 </a>
               </div>
-              <!-- <div class="campaign__swiper-slide swiper-slide">
-                <a href="" class="campaign__slide-card campaign-card">
-                  <figure class="campaign-card__img">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign2.jpg"
-                      alt="貸切ダイビングを行う海岸沿いに浮かぶ船" />
-                  </figure>
-                  <div class="campaign-card__body">
-                    <div class="campaign-card__metabox">
-                      <div class="campaign-card__meta">体験ダイビング</div>
-                      <p class="campaign-card__title">貸切体験ダイビング</p>
-                    </div>
-                    <div class="campaign-card__box">
-                      <div class="campaign-card__menu">全部コミコミ(お一人様)</div>
-                      <div class="campaign-card__price">
-                        <div class="campaign-card__original-price">¥24,000</div>
-                        <div class="campaign-card__discounted-rate">¥18,000</div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="campaign__swiper-slide swiper-slide">
-                <a href="" class="campaign__slide-card campaign-card">
-                  <figure class="campaign-card__img">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign3.jpg"
-                      alt="暗闇の中で神々しく光るクラゲ" />
-                  </figure>
-                  <div class="campaign-card__body">
-                    <div class="campaign-card__metabox">
-                      <div class="campaign-card__meta">体験ダイビング</div>
-                      <p class="campaign-card__title">ナイトダイビング</p>
-                    </div>
-                    <div class="campaign-card__box">
-                      <div class="campaign-card__menu">全部コミコミ(お一人様)</div>
-                      <div class="campaign-card__price">
-                        <div class="campaign-card__original-price">¥10,000</div>
-                        <div class="campaign-card__discounted-rate">¥8,000</div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="campaign__swiper-slide swiper-slide">
-                <a href="" class="campaign__slide-card campaign-card">
-                  <figure class="campaign-card__img">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign3(3).jpg"
-                      alt="海上でダイビングを楽しむ複数の人たち" />
-                  </figure>
-                  <div class="campaign-card__body">
-                    <div class="campaign-card__metabox">
-                      <div class="campaign-card__meta">ファンダイビング</div>
-                      <p class="campaign-card__title">貸切ファンダイビング</p>
-                    </div>
-                    <div class="campaign-card__box">
-                      <div class="campaign-card__menu">全部コミコミ(お一人様)</div>
-                      <div class="campaign-card__price">
-                        <div class="campaign-card__original-price">¥20,000</div>
-                        <div class="campaign-card__discounted-rate">¥16,000</div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="campaign__swiper-slide swiper-slide">
-                <a href="" class="campaign__slide-card campaign-card">
-                  <figure class="campaign-card__img">
-                    <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/campaign3(3).jpg"
-                      alt="海上でダイビングを楽しむ複数の人たち" />
-                  </figure>
-                  <div class="campaign-card__body">
-                    <div class="campaign-card__metabox">
-                      <div class="campaign-card__meta">ファンダイビング</div>
-                      <p class="campaign-card__title">貸切ファンダイビング</p>
-                    </div>
-                    <div class="campaign-card__box">
-                      <div class="campaign-card__menu">全部コミコミ(お一人様)</div>
-                      <div class="campaign-card__price">
-                        <div class="campaign-card__original-price">¥20,000</div>
-                        <div class="campaign-card__discounted-rate">¥16,000</div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div> -->
               <?php endwhile; ?>
               <!-- サブループ終了 -->
               <?php wp_reset_postdata(); ?>

@@ -22,7 +22,7 @@
 .nav-list__heading-link::before {
   content: "";
   position: absolute;
-  background-image: url(/assets/images/common/hitode.png);
+  background-image: url(/wp-content/themes/WordPressTheme/assets/images/common/hitode.png);
   background-size: cover;
   background-repeat: no-repeat;
   display: inline-block;
@@ -34,7 +34,7 @@
 }
 
 .nav-list__heading-link.nav-list__heading-link--black::before {
-  background-image: url(/assets/images/common/hitode-black.png);
+  background-image: url(/wp-content/themes/WordPressTheme/assets/images/common/hitode-black.png);
   width: rem(18);
 }
 

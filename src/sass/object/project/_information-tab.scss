@@ -86,20 +86,20 @@
 
 .information-tab__button:first-of-type .information-tab__text::before {
   @include mq(md) {
-    mask-image: url(/assets/images/common/shark-icon-white.svg);
+    mask-image: url(/wp-content/themes/WordPressTheme/assets/images/common/shark-icon-white.svg);
   }
 }
 
 .information-tab__button:nth-child(2) .information-tab__text::before {
   @include mq(md) {
-    mask-image: url(/assets/images/common/shark-icon2.svg);
+    mask-image: url(/wp-content/themes/WordPressTheme/assets/images/common/shark-icon2.svg);
     left: 0%;
   }
 }
 
 .information-tab__button:nth-child(3) .information-tab__text::before {
   @include mq(md) {
-    mask-image: url(/assets/images/common/fish-icon2.svg);
+    mask-image: url(/wp-content/themes/WordPressTheme/assets/images/common/fish-icon2.svg);
   }
 }
 
