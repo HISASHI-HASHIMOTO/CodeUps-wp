@@ -142,8 +142,21 @@
     <div class="campaign-page__pagenation pagenation">
       <div class="pagenation__inner">
         <div class="pagenation__contents">
-          <?php wp_pagenavi(); ?>
-
+          <?php wp_pagenavi(); 
+          function custom_posts_per_page($query) {
+            if (!is_admin() && $query->is_main_query()) {
+                if (wp_is_mobile()) {
+                    // SP表示件数
+                    $query->set('.wp-pagenavi .page', 4); 
+                } else {
+                    // PC表示件数
+                    $query->set('.wp-pagenavi .page', 6); 
+                }
+            }
+        }
+        add_action('pre_get_posts', 'custom_posts_per_page');
+        
+          ?>
         </div>
       </div>
     </div>

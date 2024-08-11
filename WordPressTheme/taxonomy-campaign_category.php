@@ -45,11 +45,14 @@
           'number' => 10
         ));
         ?>
+      <li class="contents-button-list__button">
+        <a href="<?php echo esc_url(home_url('campaign')); ?>">ALL</a>
+      </li>
       <?php
-        // ALL タブ
+        // // ALL タブ
           $home_class = (is_post_type_archive()) ? 'is-active' : '';
           $home_link = sprintf(
-              '<li class="contents-button-list__button %s"><a href="%s" class="">ALL</a></li>',
+              '<li class=""><a href="campaign" class="contents-button-list__button">ALL</a></li>',
               $home_class,
               esc_url(home_url('/campaign')),
               esc_attr(__('View all posts', 'textdomain'))

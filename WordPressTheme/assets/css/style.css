@@ -1278,7 +1278,7 @@ tr {
 	transition: 0.3s all;
 }
 
-.wp-pagenavi .smaller:nth-child(2) .wp-pagenavi .larger:nth-child(2) {
+.wp-pagenavi .page:nth-child(n+5) {
 	display: none;
 }
 
@@ -3327,7 +3327,7 @@ html {
 	grid-template-columns: repeat(2, 1fr);
 }
 
-.wp-pagenavi .smaller:nth-child(2) .wp-pagenavi .larger:nth-child(2) {
+.wp-pagenavi .page:nth-child(n+5) {
 	display: grid;
 }
 

@@ -48,5 +48,23 @@ add_action('wp_head', 'codeups_add_meta_tags');
 // }
 // add_filter('wp_pagenavi', 'wp_pagenavi');
 
+// function custom_wp_pagenavi($args = array()) {
+//     // var_dump($args);
+//     if (wp_is_mobile()) {
+//         // スマホ表示の場合の設定
+//         $args['num_pages'] = 4; // 表示するページ番号の数
+//         $args['always_show'] = true; // 常にページネーションを表示
+//         $args['num_larger_page_numbers'] = 1; // 最初と最後に表示するページ番号の数
+//         $args['larger_page_numbers_multiple'] = 2; // 大きなページ番号の間隔
+//     } else {
+//         // PC表示の場合の設定
+//         $args['num_pages'] = 6; // 表示するページ番号の数
+//         $args['always_show'] = true; // 常にページネーションを表示
+//         $args['num_larger_page_numbers'] = 0; // 最初と最後に表示するページ番号の数
+//     }
+
+//     return $args;
+// }
+// add_filter('wp_pagenavi', 'custom_wp_pagenavi');
 
 ?>
