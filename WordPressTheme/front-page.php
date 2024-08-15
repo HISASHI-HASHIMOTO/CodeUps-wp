@@ -59,8 +59,6 @@
             <div class="campaign__swiper-wrapper swiper-wrapper">
               <!-- スライド -->
               <?php while ($the_query->have_posts()) : $the_query->the_post();   the_content();?>
-
-
               <div class="campaign__swiper-slide swiper-slide">
                 <a href="<?php echo esc_url(home_url("/campaign")) ?>" class="campaign__slide-card campaign-card">
                   <figure class="campaign-card__img">
@@ -259,53 +257,68 @@
         <p class="section-header__subtitle">お客様の声</p>
       </div>
       <div class="voice__cards voice-cards">
-        <a href="" class="voice-cards__item voice-card">
+        <?php
+        $args = array(
+          "post_type" => "voice",
+          "posts_per_page" => 2,
+          'orderby' => 'rand'
+        );
+        $the_query = new WP_Query($args);
+        if ($the_query->have_posts()) :
+          while ($the_query->have_posts()) : $the_query->the_post();
+        ?>
+        <a href="<?php echo esc_url(home_url("/voice")) ?>" class="voice-cards__item voice-card">
           <div class="voice-card__body">
             <div class="voice-card__metabox">
+              <?php  $persongroup = get_field('voice_person'); ?>
               <div class="voice-card__metalist">
-                <small class="voice-card__age">20代(女性)</small>
-                <div class="voice-card__meta">ライセンス講習</div>
+                <?php if (!empty($persongroup['voice_age']) && !empty($persongroup['voice_gender'])) : ?>
+                <small class="voice-card__age">
+                  <?php echo $persongroup['voice_age']; ?>
+                  (<?php echo $persongroup['voice_gender']; ?>)
+                </small>
+                <?php endif; ?>
+                <?php
+                $term = get_the_terms($post->ID,'voice_category');
+                if($term) : ?>
+                <div class="voice-card__meta">
+                  <?php  echo $term[0]->name; ?></div>
+                <?php endif; ?>
               </div>
               <h2 class="voice-card__title">
-                ここにタイトルが入ります。ここにタイトル
+                <?php echo wp_trim_words(get_the_title(), 20, '…'); ?>
               </h2>
             </div>
             <figure class="voice-card__img">
               <div class="voice-card__colorbox colorbox">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/Rectangle9.jpg"
-                  alt="帽子を押さえながら笑顔で微笑む女性" />
+                <?php if (has_post_thumbnail()) : ?>
+                <?php the_post_thumbnail('full'); ?>
+                <?php else : ?>
+                <img src=" <?php echo get_theme_file_uri(); ?>/assets/images/common/campaign1.jpg"
+                  alt="<?php the_title(); ?>のアイキャッチ画像" />
+                <?php endif; ?>
               </div>
             </figure>
           </div>
           <p class="voice-card__text">
-            ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />ここにテキストが入ります。ここにテキストが入ります。
+            <?php
+              $voice_text = get_field("voice_text");
+              if (mb_strlen($voice_text) > 150) {
+                echo mb_substr($voice_text, 0, 150, 'UTF-8') . '...';
+              } else {
+                echo $voice_text;
+              }
+              ?>
           </p>
         </a>
-        <a href="" class="voice-cards__item voice-card">
-          <div class="voice-card__body">
-            <div class="voice-card__metabox">
-              <div class="voice-card__metalist">
-                <small class="voice-card__age">20代(男性)</small>
-                <div class="voice-card__meta">ファンダイビング</div>
-              </div>
-              <h2 class="voice-card__title">
-                ここにタイトルが入ります。ここにタイトル
-              </h2>
-            </div>
-            <figure class="voice-card__img">
-              <div class="voice-card__colorbox colorbox">
-                <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/Rectangle9(1).jpg"
-                  alt="力強く親指を立てて鼓舞している男性" />
-              </div>
-            </figure>
-          </div>
-          <p class="voice-card__text">
-            ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />ここにテキストが入ります。ここにテキストが入ります。
-          </p>
-        </a>
+        <?php endwhile; ?>
+        <?php wp_reset_postdata(); ?>
+        <?php else: ?>
+        <p class="voice__message">記事が投稿されていません</p>
+        <?php endif; ?>
       </div>
       <div class="voice__btn">
-        <a class="btn" href="">
+        <a class="btn" href="<?php echo esc_url(home_url("/voice")) ?>">
           <span class="btn__text">view&nbsp;more</span>
           <div class="btn__arrow"></div>
         </a>

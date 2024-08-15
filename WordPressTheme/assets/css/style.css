@@ -1278,10 +1278,6 @@ tr {
 	transition: 0.3s all;
 }
 
-.wp-pagenavi .page:nth-child(n+5) {
-	display: none;
-}
-
 .wp-pagenavi .current {
 	background-color: #408f95;
 	color: #ffffff;
@@ -3325,10 +3321,6 @@ html {
 .voice-cards {
 	gap: 5rem 2.5rem;
 	grid-template-columns: repeat(2, 1fr);
-}
-
-.wp-pagenavi .page:nth-child(n+5) {
-	display: grid;
 }
 
 .inner {

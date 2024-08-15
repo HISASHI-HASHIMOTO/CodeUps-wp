@@ -29,43 +29,23 @@
   <div class="campaign-page__inner inner">
     <div class="campaign-page__button-list contents-button-list">
       <?php
-        $current_term_id = 0;
-        
-        // タームの取得
-        $queried_object = get_queried_object();
-        if ($queried_object instanceof WP_Term) :
-            $current_term_id = $queried_object->term_id;
-        endif;
-        
-        // カテゴリーの取得
-        $terms = get_terms(array(
-          'taxonomy' => 'campaign_category',
-          'orderby' => 'name',
-          'order' => 'ASC',
-          'number' => 10
-        ));
+        $term = get_queried_object();
+        $term_slug = $term->slug;
+        $term_name = $term->name;
         ?>
-      <li class="contents-button-list__button">
-        <a href="<?php echo esc_url(home_url('campaign')); ?>">ALL</a>
-      </li>
+      <a href="<?php echo esc_url(home_url('/campaign/')); ?>" class="contents-button-list__button">ALL</a>
       <?php
-        // // ALL タブ
-          $home_class = (is_post_type_archive()) ? 'is-active' : '';
-          $home_link = sprintf(
-              '<li class=""><a href="campaign" class="contents-button-list__button">ALL</a></li>',
-              $home_class,
-              esc_url(home_url('/campaign')),
-              esc_attr(__('View all posts', 'textdomain'))
-          );
-          echo sprintf(esc_html__('%s', 'textdomain'), $home_link);
+    $terms = get_terms('campaign_category');
+    foreach ($terms as $term) :
+    ?>
+      <a href="<?php echo esc_url(get_category_link($term->term_id)); ?>" class="contents-button-list__button 
+      <?php if ($term_slug === $term->slug) {
+          echo 'is-active';
+        } ?>">
+        <?php echo $term->name; ?>
+      </a>
+      <?php endforeach; ?>
 
-          // タームのリンク
-          foreach ($terms as $term):
-              $term_class = ($current_term_id === $term->term_id) ? 'is-active' : '';
-              $term_link = sprintf('<li class="contents-button-list__button %s"><a href="%s" >%s</a></li>', $term_class, esc_url(get_term_link($term->term_id)), esc_html($term->name));
-              echo sprintf(esc_html__('%s', 'textdomain'), $term_link);
-          endforeach;
-          ?>
     </div>
     <div class="campaign-page__contents">
       <div class="campaign-page__content">

@@ -28,41 +28,16 @@
 <div class="campaign-page layout-sub-page fish-icon">
   <div class="campaign-page__inner inner">
     <div class="campaign-page__button-list contents-button-list">
+      <a href="<?php echo esc_url(home_url('/campaign/')); ?>" class="contents-button-list__button is-active">ALL</a>
       <?php
-        $current_term_id = 0;
-        
-        // タームの取得
-        $queried_object = get_queried_object();
-        if ($queried_object instanceof WP_Term) :
-            $current_term_id = $queried_object->term_id;
-        endif;
-        
-        // カテゴリーの取得
-        $terms = get_terms(array(
-          'taxonomy' => 'campaign_category',
-          'orderby' => 'name',
-          'order' => 'ASC',
-          'number' => 10
-        ));
-        ?>
-      <?php
-        // ALL タブ
-          $home_class = (is_post_type_archive()) ? 'is-active' : '';
-          $home_link = sprintf(
-              '<li class="contents-button-list__button %s"><a href="%s" class="">ALL</a></li>',
-              $home_class,
-              esc_url(home_url('/campaign')),
-              esc_attr(__('View all posts', 'textdomain'))
-          );
-          echo sprintf(esc_html__('%s', 'textdomain'), $home_link);
+    $terms = get_terms('campaign_category');
+    foreach ($terms as $term) :
+    ?>
+      <a href="<?php echo esc_url(get_term_link($term->term_id)); ?>" class="contents-button-list__button">
+        <?php echo $term->name; ?>
+      </a>
+      <?php endforeach; ?>
 
-          // タームのリンク
-          foreach ($terms as $term):
-              $term_class = ($current_term_id === $term->term_id) ? 'is-active' : '';
-              $term_link = sprintf('<li class="contents-button-list__button %s"><a href="%s" >%s</a></li>', $term_class, esc_url(get_term_link($term->term_id)), esc_html($term->name));
-              echo sprintf(esc_html__('%s', 'textdomain'), $term_link);
-          endforeach;
-          ?>
     </div>
     <div class="campaign-page__contents">
       <div class="campaign-page__content">
@@ -75,8 +50,8 @@
                 <?php if (has_post_thumbnail()) : ?>
                 <?php the_post_thumbnail('full'); ?>
                 <?php else : ?>
-                <img src=" <?php echo get_theme_file_uri(); ?>/assets/images/common/campaign1.jpg"
-                  alt="海水の中で煌びやかに光る魚群" />
+                <img src=" <?php echo get_theme_file_uri(); ?>/assets/images/common/no-image.jpg"
+                  alt="<?php the_title(); ?>のアイキャッチ画像" />
                 <?php endif; ?>
               </figure>
               <div class="campaign-card__body">
@@ -101,7 +76,8 @@
                   <div class="campaign-card__price">
                     <?php if (!empty($pricegroup['campaign-card__original-price'])) : ?>
                     <div class="campaign-card__original-price">
-                      ￥<?php echo $pricegroup['campaign-card__original-price']; ?></div>
+                      ￥<?php echo $pricegroup['campaign-card__original-price']; ?>
+                    </div>
                     <?php endif; ?>
                     <?php if (!empty($pricegroup['campaign-card__discounted-rate'])) : ?>
                     <div class="campaign-card__discounted-rate">
