@@ -193,54 +193,45 @@
       </div>
       <div class="blog__contents">
         <div class="blog__cards blog-cards">
-          <a href="" class="blog-cards__item blog-card">
+          <?php
+        $args = array(
+          "post_type" => "post",
+          "posts_per_page" => 3,
+          'orderby' => 'rand'
+        );
+        $the_query = new WP_Query($args);
+        if ($the_query->have_posts()) :
+          while ($the_query->have_posts()) : $the_query->the_post();
+        ?>
+          <a href="<?php the_permalink(); ?>" class="blog-cards__item blog-card">
             <figure class="blog-card__img">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/Rectangle9(19).jpg"
-                alt="海底でピンク色の鮮やかなイソギンチャク" />
+              <?php if ( has_post_thumbnail() ) : ?>
+              <?php the_post_thumbnail(); ?>
+              <?php else: ?>
+              <img src=" <?php echo get_theme_file_uri(); ?>/assets/images/common/campaign1.jpg"
+                alt="<?php the_title(); ?>のアイキャッチ画像" />
+              <img src="">
+              <?php endif; ?>
             </figure>
             <div class="blog-card__body">
               <div class="blog-card__metabox">
-                <time class="blog-card__date" datetime="2023-11-17">2023.11/17</time>
-                <p class="blog-card__title">ライセンス取得</p>
+                <time class="blog-card__date" datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y.m/d'); ?></time>
+                <p class="blog-card__title"><?php the_title(); ?></p>
               </div>
               <p class="blog-card__text">
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
+                <?php echo wp_trim_words(get_the_content(), 80, '…'); ?>
               </p>
             </div>
           </a>
-          <a href="" class="blog-cards__item blog-card">
-            <figure class="card__img">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/Rectangle9a.jpg"
-                alt="海水の中を滑空するように泳ぐウミガメ" />
-            </figure>
-            <div class="blog-card__body">
-              <div class="blog-card__metabox">
-                <time class="blog-card__date" datetime="2023-11-17">2023.11/17</time>
-                <p class="blog-card__title">ウミガメと泳ぐ</p>
-              </div>
-              <p class="blog-card__text">
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-              </p>
-            </div>
-          </a>
-          <a href="" class="blog-cards__item blog-card">
-            <figure class="card__img">
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/Rectangle9b.jpg"
-                alt="イソギンチャクの中で外の様子を伺うカクレクマノミ" />
-            </figure>
-            <div class="blog-card__body">
-              <div class="blog-card__metabox">
-                <time class="blog-card__date" datetime="2023-11-17">2023.11/17</time>
-                <p class="blog-card__title">カクレクマノミ</p>
-              </div>
-              <p class="blog-card__text">
-                ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />ここにテキストが入ります。ここにテキストが入ります。ここにテキスト
-              </p>
-            </div>
-          </a>
+          <?php endwhile; ?>
+          <?php wp_reset_postdata(); ?>
+          <?php else: ?>
+          <p class="voice__message">記事が投稿されていません</p>
+          <?php endif; ?>
         </div>
+
         <div class="blog__btn">
-          <a class="btn">
+          <a class="btn" href="<?php echo esc_url(home_url("/blog")) ?>">
             <span class="btn__text">view&nbsp;more</span>
             <div class="btn__arrow"></div>
           </a>
@@ -286,7 +277,7 @@
                 <?php endif; ?>
               </div>
               <h2 class="voice-card__title">
-                <?php echo wp_trim_words(get_the_title(), 20, '…'); ?>
+                <?php the_title(); ?>
               </h2>
             </div>
             <figure class="voice-card__img">

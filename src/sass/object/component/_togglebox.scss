@@ -1,0 +1,31 @@
+@use "global" as *;
+
+.toggleBox_checkbox {
+  display: none;
+}
+
+.toggleBox_label:hover {
+  text-decoration: underline;
+}
+
+.toggleBox_label::before {
+  content: "+ ";
+}
+
+.toggleBox_checkbox:checked + .toggleBox_label::before {
+  content: "- ";
+}
+
+.toggleBox_checkbox + .toggleBox_label + .toggleBox_content {
+  display: none;
+}
+
+.toggleBox_checkbox:checked + .toggleBox_label + .toggleBox_content {
+  display: block;
+}
+
+.toggleBox_content {
+  width: 300px;
+  padding: 15px;
+  background: #EEE;
+}

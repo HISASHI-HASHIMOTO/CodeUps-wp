@@ -14,6 +14,16 @@
   margin-top: rem(24);
 }
 
+.aside__cards-item:hover {
+  @include mq(md) {
+   opacity: 0.7;
+  }
+}
+
+ .aside__cards-item .wp-post-image {
+  max-height: rem(90);
+}
+
 .aside__box:not(:first-of-type) {
   margin-top: rem(83.2);
 }
@@ -21,6 +31,11 @@
 
 .aside__card-item {
   margin-top: rem(24);
+}
+
+.aside__card-item figure img {
+  min-height: rem(218);
+  object-fit: cover;
 }
 
 .aside__campaign-card {
@@ -76,34 +91,4 @@
 
 .aside__archive-link.aside__archive-link--month {
   margin-left: rem(24);
-}
-
-.toggleBox_checkbox {
-  display: none;
-}
-
-.toggleBox_label:hover {
-  text-decoration: underline;
-}
-
-.toggleBox_label::before {
-  content: "+ ";
-}
-
-.toggleBox_checkbox:checked + .toggleBox_label::before {
-  content: "- ";
-}
-
-.toggleBox_checkbox + .toggleBox_label + .toggleBox_content {
-  display: none;
-}
-
-.toggleBox_checkbox:checked + .toggleBox_label + .toggleBox_content {
-  display: block;
-}
-
-.toggleBox_content {
-  width: 300px;
-  padding: 15px;
-  background: #EEE;
 }

@@ -406,7 +406,9 @@ a {
 }
 
 .blog-information-card__img {
+	-o-object-fit: cover;
 	aspect-ratio: 121/90;
+	object-fit: cover;
 	width: 100%;
 }
 
@@ -1181,6 +1183,37 @@ tr {
 	width: 100%;
 }
 
+.toggleBox_checkbox {
+	display: none;
+}
+
+.toggleBox_label:hover {
+	-webkit-text-decoration: underline;
+	text-decoration: underline;
+}
+
+.toggleBox_label::before {
+	content: "+ ";
+}
+
+.toggleBox_checkbox:checked + .toggleBox_label::before {
+	content: "- ";
+}
+
+.toggleBox_checkbox + .toggleBox_label + .toggleBox_content {
+	display: none;
+}
+
+.toggleBox_checkbox:checked + .toggleBox_label + .toggleBox_content {
+	display: block;
+}
+
+.toggleBox_content {
+	background: #EEE;
+	padding: 15px;
+	width: 300px;
+}
+
 .voice-card {
 	box-shadow: 2px 4px 9px -5px rgb(0, 0, 0);
 	display: block;
@@ -1562,12 +1595,22 @@ tr {
 	margin-top: 1.5rem;
 }
 
+.aside__cards-item .wp-post-image {
+	max-height: 5.625rem;
+}
+
 .aside__box:not(:first-of-type) {
 	margin-top: 5.2rem;
 }
 
 .aside__card-item {
 	margin-top: 1.5rem;
+}
+
+.aside__card-item figure img {
+	-o-object-fit: cover;
+	min-height: 13.625rem;
+	object-fit: cover;
 }
 
 .aside__campaign-card {
@@ -1617,43 +1660,12 @@ tr {
 	margin-left: 1.5rem;
 }
 
-.toggleBox_checkbox {
-	display: none;
-}
-
-.toggleBox_label:hover {
-	-webkit-text-decoration: underline;
-	text-decoration: underline;
-}
-
-.toggleBox_label::before {
-	content: "+ ";
-}
-
-.toggleBox_checkbox:checked + .toggleBox_label::before {
-	content: "- ";
-}
-
-.toggleBox_checkbox + .toggleBox_label + .toggleBox_content {
-	display: none;
-}
-
-.toggleBox_checkbox:checked + .toggleBox_label + .toggleBox_content {
-	display: block;
-}
-
-.toggleBox_content {
-	background: #EEE;
-	padding: 15px;
-	width: 300px;
-}
-
 .blog-article time {
 	font-size: 14;
 	line-height: 1.2857142857;
 }
 
-.blog-article h1 {
+.blog-article h2 {
 	border-bottom: 1px solid #408f95;
 	font-size: 1.5rem;
 	line-height: 1;
@@ -3465,6 +3477,10 @@ html {
 	width: 100%;
 }
 
+.aside__cards-item:hover {
+	opacity: 0.7;
+}
+
 .aside__campaign-card:not(:first-of-type) {
 	margin-top: 2.5rem;
 }
@@ -3473,7 +3489,7 @@ html {
 	margin-top: 2rem;
 }
 
-.blog-article h1 {
+.blog-article h2 {
 	font-size: 2rem;
 	letter-spacing: 0.05em;
 	padding-bottom: 0.5rem;

@@ -41,30 +41,34 @@ function codeups_add_meta_tags() {
 }
 add_action('wp_head', 'codeups_add_meta_tags');
 
-// // ページネーションカスタマイズ
-// function custom_wp_pagenavi($args = array()) {
-//     $args['num_pages'] = 5; // デフォルトの表示ページ数
-//     return $args;
-// }
-// add_filter('wp_pagenavi', 'wp_pagenavi');
 
-// function custom_wp_pagenavi($args = array()) {
-//     // var_dump($args);
-//     if (wp_is_mobile()) {
-//         // スマホ表示の場合の設定
-//         $args['num_pages'] = 4; // 表示するページ番号の数
-//         $args['always_show'] = true; // 常にページネーションを表示
-//         $args['num_larger_page_numbers'] = 1; // 最初と最後に表示するページ番号の数
-//         $args['larger_page_numbers_multiple'] = 2; // 大きなページ番号の間隔
-//     } else {
-//         // PC表示の場合の設定
-//         $args['num_pages'] = 6; // 表示するページ番号の数
-//         $args['always_show'] = true; // 常にページネーションを表示
-//         $args['num_larger_page_numbers'] = 0; // 最初と最後に表示するページ番号の数
-//     }
+// 管理画面投稿名変更
+function Change_menulabel() {
+	global $menu;
+	global $submenu;
+	$name = 'ブログ';
+	$menu[5][0] = $name;
+	$submenu['edit.php'][5][0] = $name.'一覧';
+	$submenu['edit.php'][10][0] = '新しい'.$name;
+}
+function Change_objectlabel() {
+	global $wp_post_types;
+	$name = 'ブログ';
+	$labels = &$wp_post_types['post']->labels;
+	$labels->name = $name;
+	$labels->singular_name = $name;
+	$labels->add_new = _x('追加', $name);
+	$labels->add_new_item = $name.'の新規追加';
+	$labels->edit_item = $name.'の編集';
+	$labels->new_item = '新規'.$name;
+	$labels->view_item = $name.'を表示';
+	$labels->search_items = $name.'を検索';
+	$labels->not_found = $name.'が見つかりませんでした';
+	$labels->not_found_in_trash = 'ゴミ箱に'.$name.'は見つかりませんでした';
+}
+add_action( 'init', 'Change_objectlabel' );
+add_action( 'admin_menu', 'Change_menulabel' );
 
-//     return $args;
-// }
-// add_filter('wp_pagenavi', 'custom_wp_pagenavi');
+
 
 ?>
