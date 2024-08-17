@@ -63,7 +63,7 @@
                 </ul>
                 <ul class="drawer-menu__nav-list nav-list">
                   <li class="nav-list__heading-item">
-                    <a href="<?php echo $about ?>" class="nav-list__heading-link">私たちについて</a>
+                    <a href="<?php echo esc_url(home_url("/about/")) ?>" class="nav-list__heading-link">私たちについて</a>
                   </li>
                 </ul>
                 <ul class="drawer-menu__nav-list nav-list">

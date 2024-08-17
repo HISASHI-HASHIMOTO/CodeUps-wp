@@ -140,7 +140,7 @@
               ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。<br />ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
             </p>
             <div class="about__btn">
-              <a class="btn">
+              <a href="<?php echo esc_url(home_url("/about-us/")) ?>" class="btn">
                 <span class="btn__text">view&nbsp;more</span>
                 <div class="btn__arrow"></div>
               </a>

@@ -166,25 +166,35 @@
       </div>
       <h2 class="aside-header__title">アーカイブ</h2>
     </div>
+    <?php
+          $args = [
+            'type' => 'monthly',
+            'format' => 'custom',
+            'before' => '<li><p><i class="fa-solid fa-caret-right"></i>',
+            'after' => '</p></li>',
+            'show_post_count' => 0,
+            'post_type' => 'active-report'
+          ];
+        ?>
+    <?php wp_get_archives($args); ?>
     <div class="aside__archive-list archive">
       <div class="archive__list-title js-title">
         2023
-        <div class=" archive__list-items js-items">
-          <div class=" archive__list-item"><a href="" class="archive__item-link">3月</a></div>
-          <div class=" archive__list-item"><a href="" class="archive__item-link">2月</a></div>
-          <div class=" archive__list-item"><a href="" class="archive__item-link">1月</a></div>
-        </div>
+        <ul class=" archive__list-items js-items">
+          <li class=" archive__list-item"><a href="" class="archive__item-link">3月</a></li>
+          <li class=" archive__list-item"><a href="" class="archive__item-link">2月</a></li>
+          <li class=" archive__list-item"><a href="" class="archive__item-link">1月</a></li>
+        </ul>
       </div>
       <div class="archive__list-title js-title">
         2022
-        <div class=" archive__list-items js-items">
-          <div class=" archive__list-item"><a href="" class="archive__item-link">3月</a></div>
-          <div class=" archive__list-item"><a href="" class="archive__item-link">2月</a></div>
-          <div class=" archive__list-item"><a href="" class="archive__item-link">1月</a></div>
-        </div>
+        <ul class=" archive__list-items js-items">
+          <li class="archive__list-item"><a href="" class="archive__item-link">3月</a></;>
+          <li class="archive__list-item"><a href="" class="archive__item-link">2月</a></li>
+          <li class="archive__list-item"><a href="" class="archive__item-link">1月</a></li>
+        </ul>
       </div>
 
-    </div>
 
-  </div>
+    </div>
 </aside>

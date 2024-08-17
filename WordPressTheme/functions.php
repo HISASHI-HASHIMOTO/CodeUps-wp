@@ -71,4 +71,38 @@ add_action( 'admin_menu', 'Change_menulabel' );
 
 
 
+/**
+ * @param string $page_title ページのtitle属性値
+ * @param string $menu_title 管理画面のメニューに表示するタイトル
+ * @param string $capability メニューを操作できる権限（maange_options とか）
+ * @param string $menu_slug オプションページのスラッグ。ユニークな値にすること。
+ * @param string|null $icon_url メニューに表示するアイコンの URL
+ * @param int $position メニューの位置
+ */
+
+SCF::add_options_page(
+	'ギャラリー画像',
+	'ギャラリー画像',
+	'manage_options',
+	'gallery-img',
+	'dashicons-format-gallery',
+	8
+);
+SCF::add_options_page(
+	'料金一覧',
+	'料金一覧',
+	'manage_options',
+	'price-table',
+	'dashicons-media-text',
+	10
+);
+SCF::add_options_page(
+	'よくある質問',
+	'よくある質問',
+	'manage_options',
+	'faq-option',
+	'dashicons-format-status',
+	10
+);
+
 ?>
