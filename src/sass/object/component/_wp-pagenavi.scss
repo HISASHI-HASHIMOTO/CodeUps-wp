@@ -66,9 +66,35 @@
   position: relative;
 }
 
+.wp-pagenavi .previouspostslink::before {
+  content: '';
+  position: absolute;
+  width: rem(11);
+  height: rem(11);
+  border-top: 1px solid $green;
+  border-right: 1px solid $green;
+  transform: rotate(-135deg);
+  left: 43%;
+  top: 36%;
+  transition: 0.3s border;
+}
+
 .wp-pagenavi .nextpostslink {
   margin-left: rem(40);
   position: relative;
+}
+
+.wp-pagenavi .nextpostslink::before {
+  content: '';
+  position: absolute;
+  width: rem(11);
+  height: rem(11);
+  border-top: 1px solid $green;
+  border-right: 1px solid $green;
+  transform: rotate(45deg);
+  right: 42%;
+  top: 34%;
+  transition: 0.3s border;
 }
 
 .wp-pagenavi .previouspostslink:hover,
@@ -77,3 +103,9 @@
   color: $white;
   transition: 0.3s all;
 } 
+
+.wp-pagenavi .previouspostslink:hover::before ,
+.wp-pagenavi .nextpostslink:hover::before {
+  border-color: $white ;
+  transition: 0.3s all;
+}

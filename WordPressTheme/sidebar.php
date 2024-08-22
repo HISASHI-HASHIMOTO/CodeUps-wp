@@ -166,35 +166,46 @@
       </div>
       <h2 class="aside-header__title">アーカイブ</h2>
     </div>
-    <?php
-          $args = [
-            'type' => 'monthly',
-            'format' => 'custom',
-            'before' => '<li><p><i class="fa-solid fa-caret-right"></i>',
-            'after' => '</p></li>',
-            'show_post_count' => 0,
-            'post_type' => 'active-report'
-          ];
-        ?>
-    <?php wp_get_archives($args); ?>
+    <?php 
+      $args = array(
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'post_per_page' => '-1',
+        'orderby' => 'date',
+        'order' => 'DESC'
+      );
+
+      $the_query = new WP_Query($args);
+      $blog_by_year = array();
+      
+      while($the_query->have_posts()) : $the_query->the_post();
+        $year = get_the_date('Y');
+        $month = get_the_date('n');
+        $blog_by_year[$year][$month][] = $post;
+      endwhile;
+
+      wp_reset_postdata();
+      if(!empty($blog_by_year)) :
+        foreach($blog_by_year as $year => $months) :
+        
+     ?>
     <div class="aside__archive-list archive">
       <div class="archive__list-title js-title">
-        2023
+        <p><?php echo esc_html($year) ?>年</p>
         <ul class=" archive__list-items js-items">
-          <li class=" archive__list-item"><a href="" class="archive__item-link">3月</a></li>
-          <li class=" archive__list-item"><a href="" class="archive__item-link">2月</a></li>
-          <li class=" archive__list-item"><a href="" class="archive__item-link">1月</a></li>
+          <?php
+          foreach ($months as $month => $blog) :
+              $post_count = count($blog);
+          ?>
+          <li class=" archive__list-item">
+            <a href="<?php echo esc_url(home_url("{$year}/{$month}/")); ?>" class="archive__item-link">
+              <?php echo esc_html($month); ?>月</a>
+          </li>
+          <?php endforeach; ?>
         </ul>
       </div>
-      <div class="archive__list-title js-title">
-        2022
-        <ul class=" archive__list-items js-items">
-          <li class="archive__list-item"><a href="" class="archive__item-link">3月</a></;>
-          <li class="archive__list-item"><a href="" class="archive__item-link">2月</a></li>
-          <li class="archive__list-item"><a href="" class="archive__item-link">1月</a></li>
-        </ul>
-      </div>
-
-
+      <?php endforeach; ?>
+      <?php else : ?>
+      <?php endif; ?>
     </div>
 </aside>

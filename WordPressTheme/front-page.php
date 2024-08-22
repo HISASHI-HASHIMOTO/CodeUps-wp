@@ -170,7 +170,7 @@
             当店はダイビングライセンス（Cカード）世界最大の教育機関PADIの「正規店」として店舗登録されています。<br />正規登録店として、安心安全に初めての方でも安心安全にライセンス取得をサポート致します。
           </p>
           <div class="information__btn">
-            <a class="btn">
+            <a class="btn" href="<?php echo esc_url(home_url("/information")) ?>">
               <span class="btn__text">view&nbsp;more</span>
               <div class="btn__arrow"></div>
             </a>
@@ -334,63 +334,56 @@
             </picture>
           </div>
         </div>
+        <?php
+            // 講習カテゴリごとに配列整理
+            $diving_categories = [
+              1 => [
+                // 講習カテゴリ名
+                'title' => SCF::get_option_meta('price-table','course1'),
+                // 講習名・料金のグループ
+                'group' => 'price-group1',
+                // 講習名・料金
+                'lesson_key' => ['lesson1','price1']
+              ],
+              2 => [
+                'title' => SCF::get_option_meta('price-table','course2'),
+                'group' => 'price-group2',
+                'lesson_key' => ['lesson2','price2']
+              ],
+              3 => [
+                'title' => SCF::get_option_meta('price-table','course3'),
+                'group' => 'price-group3',
+                'lesson_key' => ['lesson3','price3']
+              ],
+              4 => [
+                'title' => SCF::get_option_meta('price-table','course4'),
+                'group' => 'price-group4',
+                'lesson_key' => ['lesson4','price4']
+              ]
+            ];
+          ?>
         <div class="price__list-contents">
+          <?php foreach ($diving_categories as $diving_category) :?>
           <div class="price__list-content">
-            <h3 class="price__list-title">ライセンス講習</h3>
+            <h3 class="price__list-title"><?php echo esc_html($diving_category['title']); 
+                ?></h3>
+            <?php
+                  $lesson_group = SCF::get_option_meta('price-table', $diving_category['group']);
+                  foreach ($lesson_group as $item) :
+                ?>
             <dl class="price__list-body">
               <dt class="price__list-head">
-                オープンウォーターダイバーコース
+                <?php echo $item[$diving_category['lesson_key'][0]]; ?>
               </dt>
-              <dd class="price__list-price">¥50,000</dd>
-              <dt class="price__list-head">
-                アドバンスドオープンウォーターコース
-              </dt>
-              <dd class="price__list-price">¥60,000</dd>
-              <dt class="price__list-head">レスキュー＋EFRコース</dt>
-              <dd class="price__list-price">¥70,000</dd>
+              <dd class="price__list-price">¥<?php echo $item[$diving_category['lesson_key'][1]]; ?></dd>
             </dl>
+            <?php endforeach; ?>
           </div>
-          <div class="price__list-content">
-            <h3 class="price__list-title">体験ダイビング</h3>
-            <dl class="price__list-body">
-              <dt class="price__list-head">ビーチ体験ダイビング(半日)</dt>
-              <dd class="price__list-price">¥7,000</dd>
-              <dt class="price__list-head">ビーチ体験ダイビング(1日)</dt>
-              <dd class="price__list-price">¥14,000</dd>
-              <dt class="price__list-head">ボート体験ダイビング(半日)</dt>
-              <dd class="price__list-price">¥10,000</dd>
-              <dt class="price__list-head">ボート体験ダイビング(1日)</dt>
-              <dd class="price__list-price">¥18,000</dd>
-            </dl>
-          </div>
-          <div class="price__list-content">
-            <h3 class="price__list-title">ファンダイビング</h3>
-            <dl class="price__list-body">
-              <dt class="price__list-head">ビーチダイビング(2ダイブ)</dt>
-              <dd class="price__list-price">¥14,000</dd>
-              <dt class="price__list-head">ボートダイビング(2ダイブ)</dt>
-              <dd class="price__list-price">¥18,000</dd>
-              <dt class="price__list-head">
-                スペシャルダイビング(2ダイブ)
-              </dt>
-              <dd class="price__list-price">¥24,000</dd>
-              <dt class="price__list-head">ナイトダイビング(1ダイブ)</dt>
-              <dd class="price__list-price">¥10,000</dd>
-            </dl>
-          </div>
-          <div class="price__list-content">
-            <h3 class="price__list-title">スペシャルダイビング</h3>
-            <dl class="price__list-body">
-              <dt class="price__list-head">貸切ダイビング(2ダイブ)</dt>
-              <dd class="price__list-price">¥24,000</dd>
-              <dt class="price__list-head">1日ダイビング(3ダイブ)</dt>
-              <dd class="price__list-price">¥32,000</dd>
-            </dl>
-          </div>
+          <?php endforeach; ?>
         </div>
       </div>
       <div class="price__btn">
-        <a class="btn">
+        <a href="<?php echo esc_url(home_url("/price")) ?>" class="btn">
           <span class="btn__text">view&nbsp;more</span>
           <div class="btn__arrow"></div>
         </a>

@@ -1,18 +1,3 @@
-<?php 
-  $top = esc_url(home_url('/')); 
-  $campaign = esc_url(home_url('/campaign/')); 
-  $about = esc_url(home_url('/about/')); 
-  $information = esc_url(home_url('/information/')); 
-  $blog = esc_url(home_url('/blog/')); 
-  $voice = esc_url(home_url('/voice/')); 
-  $price = esc_url( home_url( '/price/' ) );
-  $faq = esc_url( home_url( '/faq/' ) );
-  $privacy = esc_url( home_url( '/privacy/' ) );
-  $termsofservise = esc_url( home_url( '/terms-of-service/' ) );
-  $contact = esc_url( home_url( '/contact/' ) );
-  $sitemap = esc_url( home_url( '/sitemap/' ) );
-?>
-
 <!-- contactセクション -->
 <section class="contact layout-contact">
   <div class="contact__inner inner">
@@ -67,7 +52,7 @@
   <div class="footer__inner inner">
     <div class="footer__title-box">
       <div class="footer__title">
-        <a href="index.html" class="footer__title-link">
+        <a href="<?php echo esc_url(home_url("/")) ?>" class="footer__title-link">
           <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/CodeUps1.png" alt="CodeUpsロゴ" />
         </a>
       </div>
@@ -89,42 +74,45 @@
         <div class="footer-in-column-list">
           <ul class="footer__nav-list nav-list">
             <li class="nav-list__heading-item">
-              <a href="campaign.html" class="nav-list__heading-link">キャンペーン</a>
+              <a href="<?php echo esc_url(home_url("/campaign/")) ?>" class="nav-list__heading-link">キャンペーン</a>
             </li>
             <li class="nav-list__item">
-              <a href="campaign.html" class="nav-list__item-link">ライセンス取得</a>
+              <a href="<?php echo esc_url(home_url("/campaign/")) ?>" class="nav-list__item-link">ライセンス取得</a>
             </li>
             <li class="nav-list__item">
-              <a href="campaign.html" class="nav-list__item-link">貸切体験ダイビング</a>
+              <a href="<?php echo esc_url(home_url("/campaign/")) ?>" class="nav-list__item-link">貸切体験ダイビング</a>
             </li>
             <li class="nav-list__item">
-              <a href="campaign.html" class="nav-list__item-link">ナイトダイビング</a>
+              <a href="<?php echo esc_url(home_url("/campaign/")) ?>" class="nav-list__item-link">ナイトダイビング</a>
             </li>
           </ul>
           <ul class="footer__nav-list nav-list">
             <li class="nav-list__heading-item">
-              <a href="about.html" class="nav-list__heading-link">私たちについて</a>
+              <a href="<?php echo esc_url(home_url("/about/")) ?>" class=" nav-list__heading-link">私たちについて</a>
             </li>
           </ul>
         </div>
         <div class="footer-in-column-list">
           <ul class="footer__nav-list nav-list">
             <li class="nav-list__heading-item">
-              <a href="information.html" class="nav-list__heading-link">ダイビング情報</a>
+              <a href="<?php echo esc_url(home_url("/information/")) ?>" class="nav-list__heading-link">ダイビング情報</a>
             </li>
             <li class="nav-list__item">
-              <a href="information.html?id=tab1" id="tab1" class="nav-list__item-link">ライセンス情報</a>
+              <a href="<?php echo esc_url(home_url("/information?id=tab1/")) ?>" id="tab1"
+                class="nav-list__item-link">ライセンス情報</a>
             </li>
             <li class="nav-list__item">
-              <a href="information.html?id=tab3" id="tab3" class="nav-list__item-link">体験ダイビング</a>
+              <a href="<?php echo esc_url(home_url("/information?id=tab3/")) ?>" id="tab3"
+                class="nav-list__item-link">体験ダイビング</a>
             </li>
             <li class="nav-list__item">
-              <a href="information.html?id=tab2" id="tab2" class="nav-list__item-link">ファンダイビング</a>
+              <a href="<?php echo esc_url(home_url("/information?id=tab2/")) ?>" id="tab2"
+                class="nav-list__item-link">ファンダイビング</a>
             </li>
           </ul>
           <ul class="footer__nav-list nav-list">
             <li class="nav-list__heading-item">
-              <a href="blog.html" class="nav-list__heading-link">ブログ</a>
+              <a href="<?php echo esc_url(home_url("/blog/")) ?>" class="nav-list__heading-link">ブログ</a>
             </li>
           </ul>
         </div>
@@ -133,48 +121,49 @@
         <div class="footer-in-column-list">
           <ul class="footer__nav-list nav-list">
             <li class="nav-list__heading-item">
-              <a href="voice.html" class="nav-list__heading-link">お客様の声</a>
+              <a href="<?php echo esc_url(home_url("/voice/")) ?>" class="nav-list__heading-link">お客様の声</a>
             </li>
           </ul>
           <ul class="footer__nav-list nav-list">
             <li class="nav-list__heading-item">
-              <a href="price.html" class="nav-list__heading-link">料金一覧</a>
+              <a href="<?php echo esc_url(home_url("/price/")) ?>" class="nav-list__heading-link">料金一覧</a>
             </li>
             <li class="nav-list__item">
-              <a href="price.html" class="nav-list__item-link">ライセンス講習</a>
+              <a href="<?php echo esc_url(home_url("/price/")) ?>" class="nav-list__item-link">ライセンス講習</a>
             </li>
             <li class="nav-list__item">
-              <a href="price.html" class="nav-list__item-link">体験ダイビング</a>
+              <a href="<?php echo esc_url(home_url("/price/")) ?>" class="nav-list__item-link">体験ダイビング</a>
             </li>
             <li class="nav-list__item">
-              <a href="price.html" class="nav-list__item-link">ファンダイビング</a>
+              <a href="<?php echo esc_url(home_url("/price/")) ?>" class="nav-list__item-link">ファンダイビング</a>
             </li>
           </ul>
         </div>
         <div class="footer-in-column-list">
           <ul class="footer__nav-list nav-list">
             <li class="nav-list__heading-item">
-              <a href="faq.html" class="nav-list__heading-link">よくある質問</a>
+              <a href="<?php echo esc_url(home_url("/faq/")) ?>" class="nav-list__heading-link">よくある質問</a>
             </li>
           </ul>
           <ul class="footer__nav-list nav-list">
             <li class="nav-list__heading-item">
-              <a href="privacy-policy.html" class="nav-list__heading-link">プライバシー<br class="u-mobile" />ポリシー</a>
+              <a href="<?php echo esc_url(home_url("/privacy-policy/")) ?>" class="nav-list__heading-link">プライバシー<br
+                  class="u-mobile" />ポリシー</a>
             </li>
           </ul>
           <ul class="footer__nav-list nav-list">
             <li class="nav-list__heading-item">
-              <a href="terms-of-service.html" class="nav-list__heading-link">利用規約</a>
+              <a href="<?php echo esc_url(home_url("/terms-of-service/")) ?>" class="nav-list__heading-link">利用規約</a>
             </li>
           </ul>
           <ul class="footer__nav-list nav-list">
             <li class="nav-list__heading-item">
-              <a href="contact.html" class="nav-list__heading-link">お問い合わせ</a>
+              <a href="<?php echo esc_url(home_url("/contact/")) ?>" class="nav-list__heading-link">お問い合わせ</a>
             </li>
           </ul>
           <ul class="footer__nav-list nav-list">
             <li class="nav-list__heading-item">
-              <a href="sitemap.html" class="nav-list__heading-link"> サイトマップ</a>
+              <a href="<?php echo esc_url(home_url("/sitemap/")) ?>" class="nav-list__heading-link">サイトマップ</a>
             </li>
           </ul>
         </div>

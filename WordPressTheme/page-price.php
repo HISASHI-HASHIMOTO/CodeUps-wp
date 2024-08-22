@@ -28,24 +28,35 @@
   <div class="price-page__inner sub-inner">
     <div class="price-page__contents">
       <?php
-    // カスタムフィールドからデータを取得
-    $course_table = SCF::get_option_meta('price-table', 'course_table');
-
-    if ($course_table) :
-        // カテゴリごとにデータを分類するための配列を用意
-        $grouped_courses = array();
-        foreach ($course_table as $item) {
-            // カテゴリごとにコースをグループ化
-            $category = $item['course_category'];
-            $grouped_courses[$category][] = array(
-                'name' => $item['course_name'],
-                'price' => $item['course_price']
-            );
-        }
-
-        // 各カテゴリごとにテーブルを作成
-        foreach ($grouped_courses as $category => $courses) :
-       ?>
+            // 講習カテゴリごとに配列整理
+            $diving_categories = [
+              1 => [
+                // 講習カテゴリ名
+                'title' => SCF::get_option_meta('price-table','course1'),
+                // 講習名・料金のグループ
+                'group' => 'price-group1',
+                // 講習名・料金
+                'lesson_key' => ['lesson1','price1']
+              ],
+              2 => [
+                'title' => SCF::get_option_meta('price-table','course2'),
+                'group' => 'price-group2',
+                'lesson_key' => ['lesson2','price2']
+              ],
+              3 => [
+                'title' => SCF::get_option_meta('price-table','course3'),
+                'group' => 'price-group3',
+                'lesson_key' => ['lesson3','price3']
+              ],
+              4 => [
+                'title' => SCF::get_option_meta('price-table','course4'),
+                'group' => 'price-group4',
+                'lesson_key' => ['lesson4','price4']
+              ]
+            ];
+          ?>
+      <!-- 講習カテゴリ取得 -->
+      <?php foreach ($diving_categories as $diving_category) :?>
       <table class="price-page__table table">
         <thead class="table__thead u-mobile">
           <tr class="table__row">
@@ -54,31 +65,40 @@
                 <div class="table__header-img">
                   <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/shark-icon-white.png" alt="" />
                 </div>
-                <span class="table__header-text"><?php echo esc_html($category); ?></span>
+                <!-- 講習カテゴリ出力 -->
+                <span class="table__header-text"><?php echo esc_html($diving_category['title']); 
+                ?></span>
               </div>
             </th>
           </tr>
         </thead>
         <tbody class="table__tbody">
-          <th rowspan="<?php echo count($courses); ?>" class="table__header-content table__header-content--pc">
+          <th rowspan="3" class="table__header-content table__header-content--pc">
             <div class="table__header-column">
-              <span class="table__column-text"><?php echo esc_html($category); ?></span>
+              <span class="table__column-text"><?php echo esc_html($diving_category['title']); ?></span>
               <span class="table__column-img">
                 <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/shark-icon-white.png" alt="クジラのロゴ" />
               </span>
             </div>
           </th>
-          <?php foreach ($courses as $course) : ?>
+          <!-- // 講習名・料金のグループ取得 -->
+          <?php
+                  $lesson_group = SCF::get_option_meta('price-table', $diving_category['group']);
+                  foreach ($lesson_group as $item) :
+                ?>
           <tr class="table__row">
             <td class="table__data-cell">
-              <?php echo nl2br(esc_html($course['name'])); // 改行タグを挿入 ?>
+              <!-- // 講習名・料金のグループ出力 -->
+              <?php echo $item[$diving_category['lesson_key'][0]]; ?>
             </td>
-            <td class="table__data-cell">¥<?php echo number_format($course['price']); ?></td>
+            <td class="table__data-cell">
+              ¥<?php echo $item[$diving_category['lesson_key'][1]]; ?>
+            </td>
           </tr>
           <?php endforeach; ?>
         </tbody>
       </table>
-      <?php endforeach; endif; ?>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>

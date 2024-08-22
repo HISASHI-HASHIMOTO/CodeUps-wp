@@ -28,67 +28,20 @@
     <div class="faq-page__accordion accordion js-accordion">
       <div class="accordion__container">
         <?php
-        $gallery_group = SCF::get_option_meta('faq-option', 'faq_group');
-        if ($gallery_group) :
-          foreach ($gallery_group as $item) :
+        $faq_group = SCF::get_option_meta('faq-option', 'faq_group');
+        if ($faq_group) :
+          foreach ($faq_group as $item) :
         ?>
         <div class="accordion__item">
           <h2 class="accordion__title js-accordion-title">
-            <?php echo wp_get_attachment_url($item['faq_question']); ?></h2>
+            <?php echo esc_html($item['faq_question']); ?>
+          </h2>
           <div class="accordion__content">
             <p class="accordion__text">
-              <?php echo wp_get_attachment_url($item['faq_answer']); ?>
+              <?php echo esc_html($item['faq_answer']); ?>
             </p>
           </div>
         </div>
-        <!-- <div class="accordion__item">
-          <h3 class="accordion__title js-accordion-title">ここに質問が入ります。</h3>
-          <div class="accordion__content">
-            <p class="accordion__text">
-              ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
-            </p>
-          </div>
-        </div>
-        <div class="accordion__item">
-          <h3 class="accordion__title js-accordion-title">ここに質問が入ります。</h3>
-          <div class="accordion__content">
-            <p class="accordion__text">
-              ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
-            </p>
-          </div>
-        </div>
-        <div class="accordion__item">
-          <h2 class="accordion__title js-accordion-title">ここに質問が入ります。</h2>
-          <div class="accordion__content">
-            <p class="accordion__text">
-              ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
-            </p>
-          </div>
-        </div>
-        <div class="accordion__item">
-          <h3 class="accordion__title js-accordion-title">ここに質問が入ります。</h3>
-          <div class="accordion__content">
-            <p class="accordion__text">
-              ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
-            </p>
-          </div>
-        </div>
-        <div class="accordion__item">
-          <h3 class="accordion__title js-accordion-title">ここに質問が入ります。</h3>
-          <div class="accordion__content">
-            <p class="accordion__text">
-              ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
-            </p>
-          </div>
-        </div>
-        <div class="accordion__item">
-          <h3 class="accordion__title js-accordion-title">ここに質問が入ります。</h3>
-          <div class="accordion__content">
-            <p class="accordion__text">
-              ここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入りますここに質問の答えが入ります
-            </p>
-          </div>
-        </div> -->
         <?php endforeach; ?>
         <?php endif; ?>
       </div>

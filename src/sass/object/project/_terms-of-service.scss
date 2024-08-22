@@ -21,6 +21,23 @@
   margin-top: rem(40);
 }
 
+.terms-of-service__contents p,
+.terms-of-service__contents li  {
+  font-size: rem(16);
+  line-height: calc(32/16);
+}
+.terms-of-service__content ul {
+  margin-top: rem(32);
+}
+
+.terms-of-service__contents li  {
+  text-indent: -1em;
+}
+
+.terms-of-service__text-box {
+  margin-top: rem(32);
+}
+
 .terms-of-service__text-box {
   margin-top: rem(32);
 }
