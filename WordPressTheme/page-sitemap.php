@@ -61,15 +61,15 @@
                 class="nav-list__heading-link nav-list__heading-link--black">ダイビング情報</a>
             </li>
             <li class="nav-list__item">
-              <a href="<?php echo esc_url(home_url("/information?id=tab1")); ?>" id="tab1"
+              <a href="<?php echo esc_url(home_url("/information?&id=tab1")); ?>" id="tab1"
                 class="nav-list__item-link nav-list__item-link--black">ライセンス情報</a>
             </li>
             <li class="nav-list__item">
-              <a href="<?php echo esc_url(home_url("/information?id=tab2")) ?>" id="tab2"
+              <a href="<?php echo esc_url(home_url("/information?&id=tab3")) ?>" id="tab3"
                 class="nav-list__item-link nav-list__item-link--black">体験ダイビング</a>
             </li>
             <li class="nav-list__item">
-              <a href="<?php echo esc_url(home_url("/information?id=tab3")) ?>" id="tab3"
+              <a href="<?php echo esc_url(home_url("/information?&id=tab2")) ?>" id="tab2"
                 class="nav-list__item-link nav-list__item-link--black">ファンダイビング</a>
             </li>
           </ul>
