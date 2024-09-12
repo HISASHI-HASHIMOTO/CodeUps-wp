@@ -1,13 +1,18 @@
 </main>
 
 <?php
-if ( !is_page( 'contact','404','thanks' ) ) { // 'contact,404,thanks' はお問い合わせページのスラッグに置き換えてください
-    get_template_part( 'assets/template/contact' ); // 表示したいテンプレートパーツを指定
+// 除外するページのスラッグを配列で指定します
+$exclude_pages = array( 'contact', 'thanks' );
+
+// 現在のページが除外ページに含まれていない、かつ404ページでない場合のみテンプレートパーツを読み込みます
+if ( !is_page( $exclude_pages ) && !is_404() ) {
+    get_template_part( 'assets/template/contact' );
 }
 ?>
 
+
 <!-- footerセクション -->
-<footer id="footer" class="footer layout-footer">
+<footer id="footer" class="footer layout-footer <?php if (is_404()) { echo 'layout-footer--marginnone'; } ?>">
   <div class="footer__inner inner">
     <div class="footer__title-box">
       <div class="footer__title">

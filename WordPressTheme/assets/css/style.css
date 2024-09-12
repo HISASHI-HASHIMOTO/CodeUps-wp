@@ -1420,7 +1420,7 @@ tr {
 	margin-top: 6.5rem;
 }
 
-.layout-footer.layout-footer--margin-none {
+.layout-footer.layout-footer--marginnone {
 	margin-top: 0;
 }
 
@@ -4411,7 +4411,7 @@ html {
 }
 
 .voice__inner::after {
-	background-image: url(/assets/images/common/ibaratatsu.png);
+	background-image: url(/wp-content/themes/WordPressTheme/assets/images/common/ibaratatsu.png);
 	background-repeat: no-repeat;
 	background-size: 4.4375rem 10.125rem;
 	bottom: -11%;

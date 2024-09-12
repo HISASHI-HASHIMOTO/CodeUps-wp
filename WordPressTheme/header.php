@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="robots" content="noindex" />
+  <meta name="google-site-verification" content="KEbhteVx6FX--SmDUIGHtEomOO1b4BKViCyCmpELD5Y" />
   <?php wp_head(); ?>
 </head>
 
