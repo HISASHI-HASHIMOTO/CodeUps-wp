@@ -70,7 +70,7 @@ jQuery(function ($) {
     // ナビボタンが必要なら追加
     navigation: {
       nextEl: ".campaign__button-next",
-      prevEl: ".campaign__butto n-prev"
+      prevEl: ".campaign__button-prev"
     }
   });
 
@@ -153,37 +153,59 @@ jQuery(function ($) {
   });
 
   //別ページからアクティブなタブへのリンク
-  $(document).ready(function () {
-    // URLからクエリパラメータを取得
+  // $(document).ready(function() {
+  //   // URLからクエリパラメータを取得
+  //   const urlParams = new URLSearchParams(window.location.search);
+  //   const tabParam = urlParams.get('id');
+  //   // 初期タブを決める変数を宣言
+  //   let initialTab = "tab1"; // デフォルトのタブ
+  //   if (tabParam && $('#' + tabParam).length) {
+  //     initialTab = tabParam;
+  //   }
+  //   // リロードしたときにスクロールを止める
+  //   $(window).on('load', function () {
+  //     if (tabParam) {
+  //       $('body,html').stop().scrollTop(0);
+  //     }
+  //   });
+  //   // コンテンツ非表示 & タブを非アクティブ
+  //   $('.information-tab__item').removeClass("is-active");
+  //   $('.information-tab__button').removeClass('is-active');
+  //   // 何番目のタブかを格納
+  //   const tabno = $('.information-tab__button#' + initialTab).index();
+  //   // コンテンツ表示
+  //   $('.information-tab__item').eq(tabno).addClass('is-active');
+  //   // タブのアクティブ化
+  //   $('.information-tab__button').eq(tabno).addClass('is-active');
+  //   // // タブクリック時の処理
+  //   // $('.js-tab').on('click', function() {
+  //   //   $('.js-tab,.js-panel').removeClass('is-active');
+  //   //   $(this).addClass('is-active');
+  //   //   const index = $('.js-tab').index(this);
+  //   //   $('.js-panel').eq(index).addClass('is-active');
+  //   // });
+  // });
+
+  $(window).on('load', function () {
+    // URLパラメータから値を取得
     var urlParams = new URLSearchParams(window.location.search);
-    var tabParam = urlParams.get('id');
-    // 初期タブを決める変数を宣言
-    var initialTab = "tab1"; // デフォルトのタブ
+    var tabParam = urlParams.get('id'); // ここでtabParamを定義
+    var initialTab = "tab1"; // デフォルトのタブはtab1
+
     if (tabParam && $('#' + tabParam).length) {
-      initialTab = tabParam;
+      initialTab = tabParam; // URLのidに該当するタブが存在すればそのタブに設定
     }
-    // リロードしたときにスクロールを止める
-    $(window).on('load', function () {
-      if (tabParam) {
-        $('body,html').stop().scrollTop(0);
-      }
-    });
-    // コンテンツ非表示 & タブを非アクティブ
+
+    // 全てのタブを非アクティブ化
     $('.information-tab__item').removeClass("is-active");
     $('.information-tab__button').removeClass('is-active');
-    // 何番目のタブかを格納
+
+    // タブ番号を取得
     var tabno = $('.information-tab__button#' + initialTab).index();
-    // コンテンツ表示
+
+    // 対応するタブとボタンをアクティブ化
     $('.information-tab__item').eq(tabno).addClass('is-active');
-    // タブのアクティブ化
     $('.information-tab__button').eq(tabno).addClass('is-active');
-    // // タブクリック時の処理
-    // $('.js-tab').on('click', function() {
-    //   $('.js-tab,.js-panel').removeClass('is-active');
-    //   $(this).addClass('is-active');
-    //   const index = $('.js-tab').index(this);
-    //   $('.js-panel').eq(index).addClass('is-active');
-    // });
   });
 
   // モーダル

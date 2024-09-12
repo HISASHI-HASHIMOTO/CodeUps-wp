@@ -62,15 +62,15 @@ if ( !is_page( $exclude_pages ) && !is_404() ) {
               <a href="<?php echo esc_url(home_url("/information/")) ?>" class="nav-list__heading-link">ダイビング情報</a>
             </li>
             <li class="nav-list__item">
-              <a href="<?php echo esc_url(home_url("/information?id=tab1/")) ?>" id="tab1"
+              <a href="<?php echo esc_url(home_url("/information?&id=tab1")) ?>" id="tab1"
                 class="nav-list__item-link">ライセンス情報</a>
             </li>
             <li class="nav-list__item">
-              <a href="<?php echo esc_url(home_url("/information?id=tab3/")) ?>" id="tab3"
+              <a href="<?php echo esc_url(home_url("/information?&id=tab3")) ?>" id="tab3"
                 class="nav-list__item-link">体験ダイビング</a>
             </li>
             <li class="nav-list__item">
-              <a href="<?php echo esc_url(home_url("/information?id=tab2/")) ?>" id="tab2"
+              <a href="<?php echo esc_url(home_url("/information?&id=tab2")) ?>" id="tab2"
                 class="nav-list__item-link">ファンダイビング</a>
             </li>
           </ul>
